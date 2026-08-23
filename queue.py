@@ -155,5 +155,120 @@ while True:
             
 
 '''
+'''
+
+size = 10
+
+Queue = [0] * size
+
+f = -1
+r = -1
+
+while True:
+
+    print("\n\n1. Insertion from rear end")
+    print("2. Insertion from front end")
+    print("3. Deletion from front end")
+    print("4. Deletion from rear end")
+    print("5. Print")
+    print("6. Exit")
+
+    ch = int(input("Enter the choice: "))
+
+    match ch:
+
+        case 1:
+            if f == 0 and r == size - 1:
+                print("Deque is full")
+
+            else:
+                if r == size - 1:
+                    for i in range(f, r + 1):
+                        Queue[i - 1] = Queue[i]
+
+                    f = f - 1
+
+                else:
+                    r = r + 1
+
+                item = int(input("Enter the element: "))
+                Queue[r] = item
+
+                if f == -1:
+                    f = 0
+
+        case 2:
+            if f == 0 and r == size - 1:
+                print("Deque is full")
+
+            else:
+                if f == 0:
+                    for i in range(r, f - 1, -1):
+                        Queue[i + 1] = Queue[i]
+
+                    r = r + 1
+
+                elif f == -1:
+                    f = 0
+                    r = 0
+
+                else:
+                    f = f - 1
+
+                item = int(input("Enter the element: "))
+                Queue[f] = item
+
+        case 3:
+            if f == -1 and r == -1:
+                print("Deque is empty")
+
+            else:
+                print("Item deleted is:", Queue[f])
+
+                if f == r:
+                    f = -1
+                    r = -1
+
+                else:
+                    f = f + 1
+
+        case 4:
+            if f == -1 and r == -1:
+                print("Deque is empty")
+
+            else:
+                print("Item deleted is:", Queue[r])
+
+                if f == r:
+                    f = -1
+                    r = -1
+
+                else:
+                    r = r - 1
+
+        case 5:
+            if f == -1:
+                print("Deque is empty")
+
+            else:
+                print("Deque elements are:")
+
+                for i in range(f, r + 1):
+                    print(Queue[i], end="\t")
+
+                print()
+
+        case 6:
+            break
+
+        case _:
+            print("Please enter a valid choice from 1 to 6")
 
 
+            
+    
+
+
+
+
+'''
